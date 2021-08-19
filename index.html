@@ -1,0 +1,601 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>PayRoad API Reference</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-230b0d58.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-a9fde460.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[&quot;javascript&quot;,&quot;html&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-65b125a0.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">JavaScript</a>
+              <a href="#" data-language-name="html">HTML</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#payroad-api" class="toc-h1 toc-link" data-title="PayRoad API 利用ガイド">PayRoad API 利用ガイド</a>
+          </li>
+          <li>
+            <a href="#4ad1e2ad63" class="toc-h1 toc-link" data-title="認証処理方法">認証処理方法</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#1bff7d7a22" class="toc-h2 toc-link" data-title="認証">認証</a>
+                  </li>
+                  <li>
+                    <a href="#a83e661742" class="toc-h2 toc-link" data-title="プロトコル">プロトコル</a>
+                  </li>
+                  <li>
+                    <a href="#90aa7c4e14" class="toc-h2 toc-link" data-title="リクエスト">リクエスト</a>
+                  </li>
+                  <li>
+                    <a href="#99cdae5b4b" class="toc-h2 toc-link" data-title="レスポンス">レスポンス</a>
+                  </li>
+                  <li>
+                    <a href="#b41c1d579b" class="toc-h2 toc-link" data-title="タイムスタンプ">タイムスタンプ</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#337277fd92" class="toc-h1 toc-link" data-title="支払い処理">支払い処理</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#step1" class="toc-h2 toc-link" data-title="STEP1. ライブラリー追加">STEP1. ライブラリー追加</a>
+                  </li>
+                  <li>
+                    <a href="#step2" class="toc-h2 toc-link" data-title="STEP2. 加盟店識別の設定">STEP2. 加盟店識別の設定</a>
+                  </li>
+                  <li>
+                    <a href="#step3" class="toc-h2 toc-link" data-title="STEP3. 決済画面呼び出すコードの設定">STEP3. 決済画面呼び出すコードの設定</a>
+                  </li>
+                  <li>
+                    <a href="#step4" class="toc-h2 toc-link" data-title="STEP4. 取引検証処理">STEP4. 取引検証処理</a>
+                  </li>
+                  <li>
+                    <a href="#step-5" class="toc-h2 toc-link" data-title="STEP.5 決済連動完了">STEP.5 決済連動完了</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#d7f544820d" class="toc-h1 toc-link" data-title="処理結果コード一覧">処理結果コード一覧</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='payroad-api'>PayRoad API 利用ガイド</h1>
+<aside class="notice">
+サンプルとして仮に記載した内容になります。
+</aside>
+
+<p>ここでは、PayRoadを利用してどのように支払いシステムを組み込むか、さまざまなチュートリアルを用意しています。 はじめに、PayRoadの重要な機能であるAPIアクセス認証のトークン化、支払い処理について簡単に紹介します。具体的な詳細は各ページに記載してあるのでご覧ください。</p>
+
+<p><img src="images/iamport-flow-d0155490.png" alt="alt iamPort" /></p>
+
+<p>ここでは、PayRoadを利用してどのように支払いシステムを組み込むか、さまざまなチュートリアルを用意しています。 はじめに、PayRoadの重要な機能であるAPIアクセス認証のトークン化、支払い処理について簡単に紹介します。具体的な詳細は各ページに記載してあるのでご覧ください。</p>
+<h1 id='4ad1e2ad63'>認証処理方法</h1><h2 id='1bff7d7a22'>認証</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">merchant_api_key</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">token</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">token</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p><code>merchant_api_key</code>は管理ツールにて確認可能な認証キーになります。</p>
+</blockquote>
+
+<p>PayRoadのAPIを利用するには、ユーザー登録を行い、APIページからAPIキーを取得してください。 
+テスト用のキーでは、本番の支払い処理を行うサーバーへは接続されず、実際の支払い情報として計上されることもありません。
+本番用のキーは、本番申請を行うことで利用できるようになります。</p>
+
+<table><thead>
+<tr>
+<th>種類</th>
+<th>用途</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>merchant api key</td>
+<td>HTML内に埋め込むトークン生成用のパブリックキー</td>
+</tr>
+</tbody></table>
+
+<p>通常の認証は、シークレットキーをユーザーネームとして扱い、Basic認証経由で行われます。
+パブリックキーは、あなたの決済画面のHTML内に組み込む公開用のAPIキーで、クレジットカードのトークンを生成する際に使用します。 シークレットキーは、全てのAPIリクエスト操作が可能となる重要なキーなので、くれぐれ も取扱いにご注意ください。</p>
+
+<aside class="warning">
+<code>merchant_api_key</code>は外部に流出されないように大切に取り扱いしてください。
+</aside>
+<h2 id='a83e661742'>プロトコル</h2>
+<p>セキュリティのため、PAY.JPに対する全てのAPI通信は必ずHTTPSで行うようにしてください。</p>
+<h2 id='90aa7c4e14'>リクエスト</h2>
+<p>PayRoad APIへのリクエストでは、GET、POSTの2種類のHTTPメソッドを利用できます。</p>
+
+<p>引数は、GETの場合はクエリーパラメータで、POSTではContent-Type: application/x-www-form-urlencodedのボディで送信ください。</p>
+<h2 id='99cdae5b4b'>レスポンス</h2>
+<p>APIからのレスポンスデータは正常・異常とも全てUTF-8のJSON形式(Content-Type: application/json; charset=utf-8)で返されます。</p>
+<h2 id='b41c1d579b'>タイムスタンプ</h2>
+<p>日次に関するデータはUNIXタイムスタンプで表示されます。 ただし一部のパラメータはDate型(e.g. 入金予定日 transfer.scheduled_date が 2021-07-07 など)で表示されます。</p>
+<h1 id='337277fd92'>支払い処理</h1><h2 id='step1'>STEP1. ライブラリー追加</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">//対応しておりません。</span>
+</code></pre></div><div class="highlight"><pre class="highlight html tab-html"><code><span class="c">&lt;!-- jQuery --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"https://code.jquery.com/jquery-1.12.4.min.js"</span> <span class="nt">&gt;&lt;/script&gt;</span>
+<span class="c">&lt;!-- payroad.payment.js --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"https://cdn.payroad.com/js/payroad.payment-1.0.0.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div>
+<p>ウェブサイトの決済ページのHTML中に<code>&lt;script&gt;.....&lt;/script&gt;</code>を組み込めます。PayRoadのライブラリーはjQueryで実行されるためjQeury1.0以上が必ず必要になります。</p>
+<h2 id='step2'>STEP2. 加盟店識別の設定</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">payRoad</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">PAYROAD</span><span class="p">;</span>
+<span class="nx">payRoad</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="dl">"</span><span class="s2">merchant_Id</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight html tab-html"><code>//対応しておりません。
+</code></pre></div>
+<p>PAYROADオブジェクトにinit(加盟店識別ID)を設定します。</p>
+
+<blockquote>
+<p><code>merchant_Id</code>は管理ツールにて確認可能な認証キーになります。</p>
+</blockquote>
+<h2 id='step3'>STEP3. 決済画面呼び出すコードの設定</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">checkoutButton</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">click</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">payroad</span><span class="p">.</span><span class="nx">request</span><span class="p">({</span>
+          <span class="dl">"</span><span class="s2">pgCode</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">sbps</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">paymentMethod</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">credit</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">PR1234567890</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">serviceId</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">merchantId</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">merchantOrderId</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">merchant_order_id</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">totalAmount</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">1000</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">totoalTax</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">productInfo</span><span class="dl">"</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">items</span><span class="dl">"</span> <span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">itemName1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">itemId1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">300</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tax</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
+          <span class="p">},</span>
+          <span class="dl">"</span><span class="s2">paymentInfo</span><span class="dl">"</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">custCode</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">uniqueUserId</span><span class="dl">"</span>
+          <span class="p">}</span>
+          <span class="c1">//......以下省略</span>
+  <span class="p">}).</span><span class="nx">completed</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//決済成功時に呼び出し</span>
+  <span class="p">}).</span><span class="nx">incompleted</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//決済未完了時に呼び出し</span>
+    <span class="c1">//ユーザから決済止め</span>
+    <span class="c1">//決済画面閉じる</span>
+  <span class="p">}).</span><span class="nx">failed</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//決済失敗時に呼び出し</span>
+  <span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>このサンプルコードはSBPSのクレジットカード決済要求時に指定するパラメータになります。</p>
+</blockquote>
+<div class="highlight"><pre class="highlight html tab-html"><code><span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">"requestPay()"</span><span class="nt">&gt;</span>支払い<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+  <span class="nx">checkoutButton</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">click</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">payroad</span><span class="p">.</span><span class="nx">request</span><span class="p">({</span>
+      <span class="dl">"</span><span class="s2">pgCode</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">sbps</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">paymentMethod</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">credit</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">PR1234567890</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">serviceId</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">merchantId</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">merchantOrderId</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">merchant_order_id</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">totalAmount</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">1000</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">totoalTax</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">productInfo</span><span class="dl">"</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">items</span><span class="dl">"</span> <span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">itemName1</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">itemId1</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">300</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">tax</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="dl">"</span><span class="s2">paymentInfo</span><span class="dl">"</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">custCode</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">uniqueUserId</span><span class="dl">"</span>
+      <span class="p">}</span>
+      <span class="c1">//......以下省略</span>
+    <span class="p">}).</span><span class="nx">completed</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">//決済成功時に呼び出し</span>
+    <span class="p">}).</span><span class="nx">incompleted</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">//決済未完了時に呼び出し</span>
+      <span class="c1">//ユーザから決済止め</span>
+      <span class="c1">//決済画面閉じる</span>
+    <span class="p">}).</span><span class="nx">failed</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">//決済失敗時に呼び出し</span>
+    <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
+<p><code>payroad.request({....})</code>中に決済に必要なパラメータを指定して実行すれば、決済画面が呼び出されます。
+もっと詳しいパラメータ情報は「パラメータ詳細」から確認出来ます。</p>
+
+<aside class="notice">
+加盟店様の取引ID(merchantOrderId)指定
+payroad.request()を呼び出す前に加盟店様のサーバから取引IDを生成してパラメータ情報中に指定するのをお勧めします。決済成功通知を受け取った際に改ざんされる恐れがあり検証を行うキーとして決済詳細情報取得APIにサーバ間通知を通して決済詳細情報を取得する必要があります。
+</aside>
+
+<p>処理完了後には<code>result</code>結果値を見て成功、失敗、エラーなどの判別が出来ます。各function中に加盟店様が様々な処理を実装して作成してください。</p>
+<h2 id='step4'>STEP4. 取引検証処理</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">"</span><span class="s2">/payments/complete</span><span class="dl">"</span><span class="p">,</span> <span class="k">async</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="p">{</span> <span class="nx">transactionId</span><span class="p">,</span> <span class="nx">merchantOrderId</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">400</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+</code></pre></div>
+<p>上記のコードは/payment/completeにPOST要求するサンプルコードになります。<code>req.body</code>からPayRoadと加盟店様の取引IDを取得しました。</p>
+
+<p>取得した取引IDを指定して決済詳細情報APIから決済情報を取得してください。</p>
+<h2 id='step-5'>STEP.5 決済連動完了</h2>
+<p>加盟店様のウェブサイド決済連動テストが実装可能になりました。
+管理ツールにて設定情報をもう一度確認した上、決済テストを行ってください。</p>
+<h1 id='d7f544820d'>処理結果コード一覧</h1>
+<aside class="notice">
+下記のコードはPayRoadの処理結果コードになります。
+</aside>
+
+<table><thead>
+<tr>
+<th>Result Code</th>
+<th>詳細</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified kitten could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The kitten requested has been removed from our servers.</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&#39;m a teapot.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="javascript">JavaScript</a>
+                <a href="#" data-language-name="html">HTML</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
